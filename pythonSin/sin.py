@@ -8,7 +8,7 @@ k = 0
 
 while k == 0:
     try:
-        A = int(input("A = "))
+        A = float(input("A = "))
         omega = float(input("omega = "))
         phi0 = float(input("phi0 = "))
     except ValueError:
