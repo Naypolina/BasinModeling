@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 L = 10
 T_0 = 20
 Theta_0 = 5
-N = 50
+N = 10000
 M = 50
 
 # шаги переменных
-t = 1
+t = 10
 h = L/M
 
 # константы для мрамора (брала средние значения в диапазоне)
@@ -27,8 +27,8 @@ for n in range(1, N):
     T[n][M - 1] = T_0
 
 for n in range(1, N):
-    for m in range(1, M):
-        T[n][m] = T[n - 1][m - 1] + a*t/(h**2) * (T[n - 1][m - 2] - 2 * T[n - 1][m - 1] + T[n - 1][m])
+    for m in range(1, M - 1):
+        T[n][m] = T[n - 1][m] + a*t/(h**2) * (T[n - 1][m - 1] - 2 * T[n - 1][m] + T[n - 1][m + 1])
         # print(T[n][m])
 
 x = []
