@@ -30,12 +30,10 @@ a2 = Lambda2/(c2*rho2)
 # численное решение уравнения теплопролводности для одного слоя
 T = np.zeros([N,M])
 
-for m in range(0, M):
-    T[0][m] = T_0 + Theta_0 * np.sin(np.pi / L * m * h)
-
-for n in range(1, N):
-    T[n][0] = T_0
-    T[n][-1] = T_0
+m = np.arange(M)
+T[0][m] = T_0 + Theta_0 * np.sin(np.pi / L * m * h)
+T[:, 0] = T_0
+T[:, -1] = T_0
 
 for i, ti in enumerate(T):
     if i>0:
@@ -44,12 +42,10 @@ for i, ti in enumerate(T):
 # численное решение уравнения теплопроводности для двух слоев
 T2 = np.zeros([N, 2 * M])
 
-for m in range(0, 2 * M):
-    T2[0][m] = T_0 + Theta_0 * np.sin(np.pi / (2*L) * m * h)
-
-for n in range(1, N):
-    T2[n][0] = T_0
-    T2[n][-1] = T_0
+m = np.arange(2 * M)
+T2[0][m] = T_0 + Theta_0 * np.sin(np.pi / (2 * L) * m * h)
+T2[:, 0] = T_0
+T2[:, -1] = T_0
 
 for i, ti in enumerate(T2):
     if i > 0:
