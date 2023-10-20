@@ -161,10 +161,10 @@ ax.set_zlabel('Температура аналит (ºС)')
 # график разницы между численным и аналитическим решением
 plt.figure(3)
 ax = plt.axes(projection="3d")
-ax.plot_surface(x, y, T_diff, color='grey', rcount=10, ccount=10)
+ax.plot_surface(x, y, T_diff*1000, color='grey', rcount=10, ccount=10)
 ax.set_xlabel('Координата в образце (см)')
 ax.set_ylabel('Время (с)')
-ax.set_zlabel('Разница температур (ºС)')
+ax.set_zlabel('Разница температур (ºС * 10^(-3))')
 
 # график численного решения для двухслойного образца
 plt.figure(4)
