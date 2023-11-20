@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import LinearSegmentedColormap
 
 import conditions as cond
 import functions as f
 import one_layer as l1
 import two_layer as l2
 import three_layer as l3
+import variable_coefficients as vc
 
 
 # отрисовка 2D графиков
@@ -40,7 +40,7 @@ plt.plot(x_lin2, l2.T[2500], color='#FF8C00', label='t = 2500 секунд')
 plt.plot(x_lin2, l2.T[5000], color='#DAA520', label='t = 5000 секунд')
 plt.plot(x_lin2, l2.T[7500], color='#228B22', label='t = 7500 секунд')
 plt.plot(x_lin2, l2.T[cond.N - 1], color='#008080', label='t = 10000 секунд')
-plt.axvline(x=10, color='#2F4F4F', ls='--', label='граница мрамор/глина', linewidth=2)
+plt.axvline(x=10, color='#2F4F4F', ls='--', label='граница известняк/глина', linewidth=2)
 f.graph_setup(r'$x (см)$', r'$T (ºС)$',
             'Распределение температур в двухслойном образце для разных моментов времени', 20)
 
@@ -51,8 +51,18 @@ plt.plot(x_lin3, l3.T[2500], color='#FF8C00', label='t = 2500 секунд')
 plt.plot(x_lin3, l3.T[5000], color='#DAA520', label='t = 5000 секунд')
 plt.plot(x_lin3, l3.T[7500], color='#228B22', label='t = 7500 секунд')
 plt.plot(x_lin3, l3.T[cond.N - 1], color='#008080', label='t = 10000 секунд')
-plt.axvline(x=10, color='#2F4F4F', ls='--', label='граница мрамор/глина', linewidth=2)
-plt.axvline(x=20, color='#BC8F8F', ls='--', label='граница глина/базальт', linewidth=2)
-f.graph_setup(r'$x (см)$', r'$T (ºС)$', 'Распределение температур в трёхслойном образце для разных моментов времени', 30)
+plt.axvline(x=10, color='#2F4F4F', ls='--', label='граница известняк/глина', linewidth=2)
+plt.axvline(x=20, color='#BC8F8F', ls='--', label='граница глина/песок', linewidth=2)
+f.graph_setup(r'$x (см)$', r'$T (ºС)$',
+              'Распределение температур в трёхслойном образце для разных моментов времени', 30)
+
+plt.figure(4)
+plt.plot(x_lin1, vc.T[0], color='#8B0000', label='t = 0 секунд')
+plt.plot(x_lin1, vc.T[1500], color='#FF8C00', label='t = 1500 секунд')
+plt.plot(x_lin1, vc.T[3000], color='#DAA520', label='t = 3000 секунд')
+plt.plot(x_lin1, vc.T[4500], color='#228B22', label='t = 4500 секунд')
+plt.plot(x_lin1, vc.T[6000], color='#008080', label='t = 6000 секунд')
+f.graph_setup(r'$x (см)$', r'$T (ºС)$',
+            'Распределение температур образце (a = a(x))', 10)
 
 plt.show()
