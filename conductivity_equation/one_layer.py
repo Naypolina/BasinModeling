@@ -2,8 +2,11 @@ import numpy as np
 import conditions as cond
 
 
+# выбор шага по времени
+tau = cond.tau([cond.a1])
+
+# численное решение уравнения теплопролводности для одного слоя
 def one_num(a):
-    # численное решение уравнения теплопролводности для одного слоя
     T = np.zeros([cond.N, cond.M + 1])
 
     m = np.arange(cond.M + 1)
@@ -13,7 +16,7 @@ def one_num(a):
 
     for i, ti in enumerate(T):
         if i > 0:
-            ti[1:-1] = T[i-1][1:-1] + a * cond.tau / (cond.h ** 2) * (T[i-1][:-2] - 2 * T[i-1][1:-1] + T[i-1][2:])
+            ti[1:-1] = T[i-1][1:-1] + a * tau / (cond.h ** 2) * (T[i-1][:-2] - 2 * T[i-1][1:-1] + T[i-1][2:])
     return T
 
 
@@ -26,7 +29,7 @@ def temp_analytical(x, t):
 T_analytical = np.zeros([cond.N, cond.M + 1])
 for n in range(0, cond.N):
     for m in range(0, cond.M + 1):
-        T_analytical[n][m] = temp_analytical(m * cond.h, n * cond.tau)
+        T_analytical[n][m] = temp_analytical(m * cond.h, n * tau)
 
 
 # заполнение массива с разницей между численным и аналитическим решением
