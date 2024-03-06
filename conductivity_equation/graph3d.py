@@ -53,7 +53,7 @@ ax.tick_params(axis='y', labelsize=16)
 ax.tick_params(axis='z', labelsize=16)
 ax.set_xlabel('x, см', fontsize=22, labelpad=15)
 ax.set_ylabel('t, мин', fontsize=22, labelpad=20)
-ax.set_zlabel('T, ºС', fontsize=22, labelpad=15)
+ax.set_zlabel('$T, ^{o}С$', fontsize=22, labelpad=15)
 
 # график аналитического решения для одного слоя
 plt.figure(2)
@@ -65,7 +65,7 @@ ax.tick_params(axis='y', labelsize=16)
 ax.tick_params(axis='z', labelsize=16)
 ax.set_xlabel('x, см', fontsize=22, labelpad=15)
 ax.set_ylabel('t, мин', fontsize=22, labelpad=20)
-ax.set_zlabel('T, ºС', fontsize=22, labelpad=15)
+ax.set_zlabel('$T, ^{o}С$', fontsize=22, labelpad=15)
 
 # график разницы между численным и аналитическим решением
 plt.figure(3)
@@ -77,7 +77,7 @@ ax.tick_params(axis='y', labelsize=16)
 ax.tick_params(axis='z', labelsize=16, pad=5)
 ax.set_xlabel('x, см', fontsize=22, labelpad=15)
 ax.set_ylabel('t, мин', fontsize=22, labelpad=20)
-ax.set_zlabel('T, ºС * 10 ^ (-3)', fontsize=22, labelpad=20)
+ax.set_zlabel('$T, ^{o}С \cdot 10^{-3}$', fontsize=22, labelpad=20)
 
 # # график численного решения для двухслойного образца
 # plt.figure(4)
