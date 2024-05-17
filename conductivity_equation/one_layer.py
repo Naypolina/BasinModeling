@@ -22,7 +22,7 @@ def one_num(a):
 
 # аналитическое решение уравнения теплопролводности
 def temp_analytical(x, t):
-    return cond.T_0 + cond.Theta_0 * np.exp(- (np.pi / cond.L) ** 2 * cond.a1 * t) * np.sin(np.pi * x / cond.L)
+    return cond.T_0 + cond.Theta_0 * np.exp(- (np.pi / cond.L) ** 2 * cond.a3 * t) * np.sin(np.pi * x / cond.L)
 
 
 # заполнение массива значениями аналитического решения
@@ -33,4 +33,4 @@ for n in range(0, cond.N):
 
 
 # заполнение массива с разницей между численным и аналитическим решением
-T_diff = np.abs(T_analytical - one_num(cond.a1))
+T_diff = np.abs(T_analytical - one_num(cond.a3))
